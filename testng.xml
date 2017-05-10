@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite" allow-return-values="true" >
+    <test name="测试">
+        <groups>
+
+            <run>
+                <include name="testA" />
+                <!--<exclude name="testB" />-->
+            </run>
+        </groups>
+
+
+        <classes>
+
+            <class name="com.codoon.test.SportsCircleTest"/>
+
+        </classes>
+    </test>
+
+</suite>
