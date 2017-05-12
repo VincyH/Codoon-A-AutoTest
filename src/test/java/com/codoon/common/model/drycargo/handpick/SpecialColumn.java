@@ -1,6 +1,5 @@
-package com.codoon.common.model.sportscircle.handpick;
+package com.codoon.common.model.drycargo.handpick;
 
-import com.codoon.common.model.SportsCirclePage;
 import com.codoon.common.util.DeviceHelper;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.sikuppium.driver.SikuppiumDriver;

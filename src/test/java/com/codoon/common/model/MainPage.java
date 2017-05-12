@@ -22,10 +22,10 @@ public class MainPage {
     private SikuppiumDriver driver;
     DeviceHelper mHelper= DeviceHelper.getInstance(driver);
 
-    public static By sportsCircle = By.name("运动圈");
+    public static By community = By.name("社区");
     public static By find= By.name("发现");
     public static By sports = By.name("运动");
-    public static By mall= By.name("商城");
+    public static By dryCargo= By.name("干货");
     public static By mine = By.name("我的");
 
 
@@ -53,7 +53,7 @@ public class MainPage {
 
     public void gotoSportsCircle(){
         gotoMainPage();
-        driver.findElement(sportsCircle).click();
+        driver.findElement(community).click();
 
     }
 
@@ -70,7 +70,7 @@ public class MainPage {
 
     public void gotoMall(){
         gotoMainPage();
-        driver.findElement(mall).click();
+        driver.findElement(dryCargo).click();
     }
 
     public void gotoMine(){

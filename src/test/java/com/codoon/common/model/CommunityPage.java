@@ -1,12 +1,9 @@
 package com.codoon.common.model;
 
 import com.codoon.common.util.DeviceHelper;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.sikuppium.driver.SikuppiumDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -14,8 +11,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by huangjingqing on 17/3/27.
  */
-public class SportsCirclePage {
-    private static SportsCirclePage instance;
+public class CommunityPage {
+    private static CommunityPage instance;
     private SikuppiumDriver driver;
     DeviceHelper mHelper= DeviceHelper.getInstance(driver);
 
@@ -53,14 +50,14 @@ public class SportsCirclePage {
     public static By more = By.id("com.codoon.gps:id/title_bar_more");
 
 
-    private SportsCirclePage(SikuppiumDriver driver) {
+    private CommunityPage(SikuppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver, 5, TimeUnit.SECONDS), this);
         this.driver = driver;
     }
 
-    public static SportsCirclePage getInstance(SikuppiumDriver driver) {
+    public static CommunityPage getInstance(SikuppiumDriver driver) {
         if(instance == null) {
-            instance = new SportsCirclePage(driver);
+            instance = new CommunityPage(driver);
         }
         return instance;
     }
@@ -74,9 +71,9 @@ public class SportsCirclePage {
 
     /*------------------------------operate--------------------------------------*/
     public void  gotoMainPage(){
-        driver.findElement(MainPage.sportsCircle).click();
-        if(!driver.findElement(SportsCirclePage.specialColumn).isSelected()){
-            driver.findElement(SportsCirclePage.specialColumn).click();
+        driver.findElement(MainPage.community).click();
+        if(!driver.findElement(CommunityPage.specialColumn).isSelected()){
+            driver.findElement(CommunityPage.specialColumn).click();
         }
     }
 

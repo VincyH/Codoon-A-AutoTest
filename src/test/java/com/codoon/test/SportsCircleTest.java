@@ -1,46 +1,22 @@
 package com.codoon.test;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Rect;
-import android.os.Environment;
-import android.util.Base64;
 import com.codoon.common.model.MainPage;
-import com.codoon.common.model.SportsBeginPage;
-import com.codoon.common.model.SportsCirclePage;
-import com.codoon.common.model.sportscircle.DynamicState;
-import com.codoon.common.model.sportscircle.ReleaseFeed;
-import com.codoon.common.model.sportscircle.handpick.Topic;
+import com.codoon.common.model.CommunityPage;
+import com.codoon.common.model.drycargo.DynamicState;
+import com.codoon.common.model.drycargo.ReleaseFeed;
+import com.codoon.common.model.drycargo.handpick.Topic;
+import com.codoon.common.util.Description;
 import com.codoon.common.util.DeviceHelper;
-import com.codoon.common.util.ImageMatch;
-import com.codoon.common.util.MatchPoint;
-import com.meizu.flymecommon.util.ContrastPhoto;
-import com.meizu.flymecommon.util.FileUtils;
-import com.sun.jna.platform.unix.X11;
-import com.sun.org.glassfish.gmbal.Description;
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.pagefactory.AndroidFindBy;
+
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
-import io.sikuppium.driver.CapabilitiesFactory;
-import io.sikuppium.driver.CustomImageElement;
 import io.sikuppium.driver.ImageElement;
-import io.sikuppium.driver.SikuppiumDriver;
-import org.aspectj.lang.annotation.Before;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.sikuli.api.Screen;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
@@ -59,27 +35,30 @@ public class SportsCircleTest extends BaseTest {
         mHelper=DeviceHelper.getInstance(driver);
         releaseFeed=ReleaseFeed.getInstance(driver);
 
-        driver.findElement(MainPage.sportsCircle).click();
-        if(mHelper.isExistBySelector(driver,SportsCirclePage.handPick,5)&&!driver.findElement(SportsCirclePage.handPick).isSelected()){
-            driver.findElement(SportsCirclePage.handPick).click();
-        }
   }
 
-    /*----------------------------------每条case执行后运行---------------------------------------*/
+    /*-------------------------------------每条case执行后运行---------------------------------------*/
 
     @AfterMethod
     public void after() {
         super.after();
     }
 
-    /*----------------------------------------testCase--------------------------------------------*/
+    /*-----------------------------------------testCase--------------------------------------------*/
 
     @Test
+    @Description(steps = "test",
+                 expectation = "成功",
+                 priority = Description.P1)
     public void test000Test() throws InterruptedException {
+        driver.findElement(CommunityPage.banner).click();
+        Set<String> contextNames = driver.getContextHandles();
+        for (String contextName : contextNames) {
+            System.out.println(contextName);
 
+        }
 
     }
-
 
     @Test//(groups = { "testA" })
     public void test000() throws InterruptedException, IOException {
@@ -106,12 +85,12 @@ public class SportsCircleTest extends BaseTest {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Test//(groups = { "testB" })
     public void test001TopicList() throws InterruptedException {
-        driver.findElement(SportsCirclePage.dynamicState).click();
+        driver.findElement(CommunityPage.dynamicState).click();
         ImageElement el=waitForImageElement("addfeed",5);
         boolean feedAddIcon=(el!=null);
 
-        driver.findElement(SportsCirclePage.special).click();
-        driver.findElement(SportsCirclePage.addFeed).click();
+        driver.findElement(CommunityPage.special).click();
+        driver.findElement(CommunityPage.addFeed).click();
         releaseFeed.gotoReleaseTable();
 
         boolean hasTopicTag=mHelper.isExistBySelector(driver,ReleaseFeed.initagTxT,5);
@@ -123,16 +102,15 @@ public class SportsCircleTest extends BaseTest {
     @Test
     public void test002CheckBanner() throws Exception {
 
-        driver.findElement(MainPage.sportsCircle).click();
-        driver.findElement(SportsCirclePage.banner).click();
+        driver.findElement(CommunityPage.banner).click();
 
-        boolean idCheck=mHelper.isExistBySelector(driver,SportsCirclePage.friendsAdd,1);
+        boolean idCheck=mHelper.isExistBySelector(driver, CommunityPage.friendsAdd,1);
         Assert.assertTrue(!idCheck,"Error in banner txt title is exists");
     }
 
     @Test
     public void test003AddFeed() throws InterruptedException {
-        driver.findElement(SportsCirclePage.addFeed).click();
+        driver.findElement(CommunityPage.addFeed).click();
         releaseFeed.releaseFeed(true,null,null);
 
         mHelper.swipeDown();
@@ -143,7 +121,7 @@ public class SportsCircleTest extends BaseTest {
 
     @Test
     public void test004CheckTopicTag(){
-        driver.findElement(SportsCirclePage.addFeed).click();
+        driver.findElement(CommunityPage.addFeed).click();
         releaseFeed.gotoReleaseTable();
         releaseFeed.addTagTxt("test004");
 
@@ -157,7 +135,7 @@ public class SportsCircleTest extends BaseTest {
 
     @Test
     public void test005TopicListAddFeed() throws InterruptedException {
-        driver.findElement(SportsCirclePage.topic).click();
+        driver.findElement(CommunityPage.topic).click();
 
         driver.findElement(Topic.img).click();
         String txt=driver.findElement(Topic.title).getText().substring(1).trim();
@@ -177,30 +155,30 @@ public class SportsCircleTest extends BaseTest {
 
     @Test
     public void test006CheckTab(){
-        driver.findElement(SportsCirclePage.dynamicState).click();
+        driver.findElement(CommunityPage.dynamicState).click();
         driver.findElement(MainPage.find).click();
 
-        driver.findElement(MainPage.sportsCircle).click();
-        boolean handPickTab=driver.findElement(SportsCirclePage.handPick).isSelected();
-        boolean dynamicStateTab=driver.findElement(SportsCirclePage.dynamicState).isSelected();
+
+        boolean handPickTab=driver.findElement(CommunityPage.handPick).isSelected();
+        boolean dynamicStateTab=driver.findElement(CommunityPage.dynamicState).isSelected();
 
         Assert.assertTrue(!handPickTab&&dynamicStateTab,"Error is !handPickTab:"+!handPickTab+" dynamicStateTab"+dynamicStateTab);
     }
 
     @Test
     public void test007ScorllCheckTab() throws InterruptedException {
-        boolean tab1=driver.findElement(SportsCirclePage.handPick).isSelected();
+        boolean tab1=driver.findElement(CommunityPage.handPick).isSelected();
 
         mHelper.swipeLeft();
-        boolean tab1_2=driver.findElement(SportsCirclePage.handPick).isSelected();
-        boolean tab2=driver.findElement(SportsCirclePage.dynamicState).isSelected();
+        boolean tab1_2=driver.findElement(CommunityPage.handPick).isSelected();
+        boolean tab2=driver.findElement(CommunityPage.dynamicState).isSelected();
 
         Assert.assertTrue(tab1&&!tab1_2&&tab2,"Error is tab1:"+tab1+" tab1_2:"+tab1_2+" tab2:"+tab2);
     }
 
     @Test
     public void test008TopicElemnt(){
-        driver.findElement(SportsCirclePage.topic).click();
+        driver.findElement(CommunityPage.topic).click();
 
         boolean title=mHelper.isExistBySelector(driver,Topic.title,5);
         boolean img=mHelper.isExistBySelector(driver,Topic.img,5);

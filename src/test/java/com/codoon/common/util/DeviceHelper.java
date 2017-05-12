@@ -1,6 +1,7 @@
 package com.codoon.common.util;
 
 import android.view.accessibility.AccessibilityNodeInfo;
+import com.google.gson.annotations.Until;
 import io.appium.java_client.TouchAction;
 import io.sikuppium.driver.ImageElement;
 import io.sikuppium.driver.SikuppiumDriver;
@@ -551,279 +552,33 @@ public class DeviceHelper {
         return rect;
     }
 
-
-    /////////////////////////////////////////////////////////////
-
-    public void clickByText(String text) {
-        driver.findElement(By.name(text)).click();
-    }
-//
-//    public void clickByText(String text, long mTimeout) {
-//        this.getObject2(By.text(text), mTimeout).click();
-//    }
-//
-//    public void clickByText(Pattern regex) {
-//        this.getObject2(By.text(regex)).click();
-//    }
-//
-//    public void clickByText(Pattern regex, long mTimeout) {
-//        this.getObject2(By.text(regex), mTimeout).click();
-//    }
-//
-//    public void clickByTextInList(String text, int instance) {
-//        ((UiObject2)this.getObject2List(By.text(text)).get(instance)).click();
-//    }
-//
-//    public void clickByTextInList(String text, int instance, long mTimeout) {
-//        ((UiObject2)this.getObject2List(By.text(text), mTimeout).get(instance)).click();
-//    }
-//
-//    public void clickByTextInList(Pattern regex, int instance) {
-//        ((UiObject2)this.getObject2List(By.text(regex)).get(instance)).click();
-//    }
-//
-//    public void clickByTextInList(Pattern regex, int instance, long mTimeout) {
-//        ((UiObject2)this.getObject2List(By.text(regex), mTimeout).get(instance)).click();
-//    }
-//
-//    public void clickById(String res) {
-//        this.getObject2(By.res(res)).click();
-//    }
-//
-//    public void clickById(String res, long mTimeout) {
-//        this.getObject2(By.res(res), mTimeout).click();
-//    }
-//
-//    public void clickById(Pattern regex) {
-//        this.getObject2(By.res(regex)).click();
-//    }
-//
-//    public void clickById(Pattern regex, long mTimeout) {
-//        this.getObject2(By.res(regex), mTimeout).click();
-//    }
-//
-//    public void clickByIdInList(String res, int instance) {
-//        ((UiObject2)this.getObject2List(By.res(res)).get(instance)).click();
-//    }
-//
-//    public void clickByIdInList(String res, int instance, long mTimeout) {
-//        ((UiObject2)this.getObject2List(By.res(res), mTimeout).get(instance)).click();
-//    }
-//
-//    public void clickByIdInList(Pattern regex, int instance) {
-//        ((UiObject2)this.getObject2List(By.res(regex)).get(instance)).click();
-//    }
-//
-//    public void clickByIdInList(Pattern regex, int instance, long mTimeout) {
-//        ((UiObject2)this.getObject2List(By.res(regex), mTimeout).get(instance)).click();
-//    }
-//
-//    public void clickByDesc(String desc) {
-//        this.getObject2(By.desc(desc)).click();
-//    }
-//
-//    public void clickByDesc(String desc, long mTimeout) {
-//        this.getObject2(By.desc(desc), mTimeout).click();
-//    }
-//
-//    public void clickByDesc(Pattern regex) {
-//        this.getObject2(By.desc(regex)).click();
-//    }
-//
-//    public void clickByDesc(Pattern regex, long mTimeout) {
-//        this.getObject2(By.desc(regex), mTimeout).click();
-//    }
-//
-//    public void clickByDescInList(String desc, int instance) {
-//        ((UiObject2)this.getObject2List(By.desc(desc)).get(instance)).click();
-//    }
-//
-//    public void clickByDescInList(String desc, int instance, long mTimeout) {
-//        ((UiObject2)this.getObject2List(By.desc(desc), mTimeout).get(instance)).click();
-//    }
-//
-//    public void clickByDescInList(Pattern regex, int instance) {
-//        ((UiObject2)this.getObject2List(By.desc(regex)).get(instance)).click();
-//    }
-//
-//    public void clickByDescInList(Pattern regex, int instance, long mTimeout) {
-//        ((UiObject2)this.getObject2List(By.desc(regex), mTimeout).get(instance)).click();
-//    }
-//
-//    public void clickByClassInList(String clazz, int instance) {
-//        ((UiObject2)this.getObject2List(By.clazz(clazz)).get(instance)).click();
-//    }
-//
-//    public void clickByObj(UiObject obj) throws UiObjectNotFoundException {
-//        obj.waitForExists(this.timeout);
-//        obj.click();
-//    }
-//
-//    public void clickByObj(UiObject obj, long mTimeout) throws UiObjectNotFoundException {
-//        obj.waitForExists(mTimeout);
-//        obj.click();
-//    }
-//
-//    public void clickByObj2(BySelector bySel) {
-//        this.getObject2(bySel).click();
-//    }
-//
-//    public void clickByObj2(BySelector bySel, long mTimeout) {
-//        this.getObject2(bySel, mTimeout).click();
-//    }
-//
-//    public void clickByObj2InList(BySelector bySel, int instance) {
-//        ((UiObject2)this.getObject2List(bySel).get(instance)).click();
-//    }
-//
-//    public void clickByObj2InList(BySelector bySel, int instance, long mTimeout) {
-//        SystemClock.sleep(200L);
-//        ((UiObject2)this.getObject2List(bySel, mTimeout).get(instance)).click();
-//    }
-//
-//    public boolean isTextExists(String text, long timeout) {
-//        return this.isObject2Exists(By.text(text), timeout);
-//    }
-//
-//    public boolean isTextExists(Pattern regex, long timeout) {
-//        return this.isObject2Exists(By.text(regex), timeout);
-//    }
-//
-//    public boolean isIdExists(String id, long timeout) {
-//        return this.isObject2Exists(By.res(id), timeout);
-//    }
-//
-//    public boolean isIdExists(Pattern regex, long timeout) {
-//        return this.isObject2Exists(By.res(regex), timeout);
-//    }
-//
-//    public boolean isDescExists(String desc, long timeout) {
-//        return this.isObject2Exists(By.desc(desc), timeout);
-//    }
-//
-//    public boolean isDescExists(Pattern regex, long timeout) {
-//        return this.isObject2Exists(By.desc(regex), timeout);
-//    }
-//
-//    public boolean isObjectExists(UiObject obj, long timeout) {
-//        return obj.waitForExists(timeout);
-//    }
-//
-//    public boolean isObject2Exists(BySelector bySel, long timeout) {
-//        return ((Boolean)this.mUiDevice.wait(Until.hasObject(bySel), timeout)).booleanValue();
-//    }
-//
-//    public boolean isObject2Exists(BySelector bySel, int instance, long timeout) {
-//        return ((List)this.mUiDevice.wait(Until.findObjects(bySel), timeout)).size() > instance;
-//    }
-//
-//    public UiObject2 getObject2(BySelector bySel) {
-//        return (UiObject2)this.mUiDevice.wait(Until.findObject(bySel), this.timeout);
-//    }
-//
-//    public UiObject2 getObject2(BySelector bySel, long mTimeout) {
-//        return (UiObject2)this.mUiDevice.wait(Until.findObject(bySel), mTimeout);
-//    }
-//
-//    public List<UiObject2> getObject2List(BySelector bySel) {
-//        return (List)this.mUiDevice.wait(Until.findObjects(bySel), this.timeout);
-//    }
-//
-//    public List<UiObject2> getObject2List(BySelector bySel, long mTimeout) {
-//        return (List)this.mUiDevice.wait(Until.findObjects(bySel), mTimeout);
-//    }
-//
-//    public String getTextById(String id) {
-//        return this.getObject2(By.res(id)).getText();
-//    }
-//
-//    public String getTextByDesc(String desc) {
-//        return this.getObject2(By.desc(desc)).getText();
-//    }
-//
-//    public void setTextById(String content, String id) {
-//        this.getObject2(By.res(id)).setText(content);
-//    }
-//
-//    public void setTextByText(String content, String text) {
-//        this.getObject2(By.text(text)).setText(content);
-//    }
-//
-//    public void setTextByDesc(String content, String desc) {
-//        this.getObject2(By.desc(content)).setText(content);
-//    }
-//
-//    public void longPressVolumeUp() {
-//        Instrumentation mInstrumentation = InstrumentationRegistry.getInstrumentation();
-//        final InstrumentationUiAutomatorBridge mUiAutomationBridge = new InstrumentationUiAutomatorBridge(mInstrumentation.getContext(), mInstrumentation.getUiAutomation());
-//        Runnable command = new Runnable() {
-//            public void run() {
-//                long eventTime = SystemClock.uptimeMillis();
-//                KeyEvent downEvent = new KeyEvent(eventTime, eventTime, 0, 24, 0, 0, -1, 0, 0, 257);
-//
-//                for(int upEvent = 0; upEvent < 20; ++upEvent) {
-//                    mUiAutomationBridge.injectInputEvent(downEvent, true);
-//
-//                    try {
-//                        Thread.sleep(100L);
-//                    } catch (InterruptedException var6) {
-//                        var6.printStackTrace();
-//                    }
-//                }
-//
-//                KeyEvent var7 = new KeyEvent(eventTime, eventTime, 1, 24, 0, 0, -1, 0, 0, 257);
-//                mUiAutomationBridge.injectInputEvent(var7, true);
-//            }
-//        };
-//        command.run();
-//    }
-//
-//    public void longPressVolumeDown() {
-//        Instrumentation mInstrumentation = InstrumentationRegistry.getInstrumentation();
-//        final InstrumentationUiAutomatorBridge mUiAutomationBridge = new InstrumentationUiAutomatorBridge(mInstrumentation.getContext(), mInstrumentation.getUiAutomation());
-//        Runnable command = new Runnable() {
-//            public void run() {
-//                long eventTime = SystemClock.uptimeMillis();
-//                KeyEvent downEvent = new KeyEvent(eventTime, eventTime, 0, 25, 0, 0, -1, 0, 0, 257);
-//
-//                for(int upEvent = 0; upEvent < 20; ++upEvent) {
-//                    mUiAutomationBridge.injectInputEvent(downEvent, true);
-//
-//                    try {
-//                        Thread.sleep(100L);
-//                    } catch (InterruptedException var6) {
-//                        var6.printStackTrace();
-//                    }
-//                }
-//
-//                KeyEvent var7 = new KeyEvent(eventTime, eventTime, 1, 25, 0, 0, -1, 0, 0, 257);
-//                mUiAutomationBridge.injectInputEvent(var7, true);
-//            }
-//        };
-//        command.run();
-//    }
-//
-//    public void longPressHome() {
-//        try {
-//            this.mUiDevice.executeShellCommand("input keyevent --longpress 3");
-//        } catch (IOException var2) {
-//            var2.printStackTrace();
-//        }
-//
-//    }
-
-    public void clickElement(By by) throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        WebElement el=driver.findElement(by);
-        el.click();
+    /**
+     * click
+     * @param by
+     */
+    public void clickByElement(By by) {
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.findElement(by).click();
     }
 
-    public void clickElement(By by,int instance) throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+
+    /**
+     * click in List
+     * @param by
+     * @param instance
+     */
+    public void clickByElementInList(By by, int instance) {
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         List<WebElement> els=driver.findElements(by);
         els.get(instance).click();
     }
 
+    /**
+     * click in Class
+     * @param by
+     * @param bound
+     * @throws InterruptedException
+     */
     public void clickElementByClass(By by,String bound) throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         int instance=getInstanceByClass(by.toString(),bound);
@@ -831,6 +586,19 @@ public class DeviceHelper {
         els.get(instance).click();
     }
 
+
+    public WebElement findElementInList(By by, int instance) {
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        return (WebElement) driver.findElements(by).get(instance);
+    }
+
+    /**
+     * 判断元素存在
+     * @param driver
+     * @param by
+     * @param waitTime
+     * @return
+     */
     public boolean isExistBySelector(WebDriver driver, By by, int waitTime) {
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         boolean result = false;
@@ -846,12 +614,56 @@ public class DeviceHelper {
         return result;
     }
 
+    /**
+     * 返回text
+     * @param by
+     * @return
+     */
+    public String getTextByElement(By by) {
+        return  driver.findElement(by).getText();
+    }
 
+    /**
+     * List 返回text
+     * @param by
+     * @param instance
+     * @return
+     */
+    public String getTextByElements(By by,int instance) {
+        return ((WebElement)driver.findElements(by).get(instance)).getText();
+    }
 
+    /**
+     * 输入text
+     * @param by
+     * @param content
+     * @throws InterruptedException
+     */
+    public void setTextByElement(By by,String content) throws InterruptedException {
+        Thread.sleep(1000);
+        driver.findElement(by).sendKeys(content);
+    }
 
+    /**
+     * List 输入text
+     * @param by
+     * @param instance
+     * @param content
+     * @throws InterruptedException
+     */
+    public void setTextByElements(By by,int instance,String content) throws InterruptedException {
+        Thread.sleep(1000);
+        List<WebElement> els=driver.findElements(by);
+        els.get(instance).sendKeys(content);
+    }
 
-
-
+    /**
+     * 图片存在判断
+     * @param resourceName
+     * @param secondsToWait
+     * @return
+     * @throws InterruptedException
+     */
     public boolean isExistImageElement(String resourceName, int secondsToWait) throws InterruptedException {
         sleep(2000);
         String prefix = String.valueOf(driver.getSize().getWidth()) + "x_";
@@ -863,17 +675,22 @@ public class DeviceHelper {
         int attempts = 0;
         while (image == null && attempts < secondsToWait / 10) {
             sleep(10000);
-
             image = driver.findImageElement(resource);
             attempts++;
             if (image != null) {
                 break;
             }
         }
-
         return image!=null;
     }
 
+    /**
+     * 图片点击
+     * @param resourceName
+     * @param secondsToWait
+     * @return
+     * @throws InterruptedException
+     */
     public ImageElement waitForImageElement(String resourceName, int secondsToWait) throws InterruptedException {
         sleep(2000);
         String prefix = String.valueOf(driver.getSize().getWidth()) + "x_";
@@ -899,5 +716,37 @@ public class DeviceHelper {
         return image;
     }
 
+    /**
+     * found Element in desk
+     * @param by
+     * @return
+     * @throws InterruptedException
+     */
+     public boolean findElementInDeskHome(By by) throws InterruptedException {
+         boolean found =false;
+         this.pressHome();
+         this.pressHome();
+         long time = System.currentTimeMillis();
+         while (System.currentTimeMillis() - time < 30000) {
+             if (waitForVisible(driver,by,5)) {
+                 found=true;
+                 break;
+             }
+             this.swipeLeft();   // 左滑
+         }
+
+         if (!found) {
+             time = System.currentTimeMillis();
+             this.pressHome();
+             while (System.currentTimeMillis() - time < 30000) {
+                 if (waitForVisible(driver,by,5)) {
+                     found=true;
+                     break;
+                 }
+                 this.swipeRight(); //右滑
+             }
+         }
+         return found;
+     }
 
 }

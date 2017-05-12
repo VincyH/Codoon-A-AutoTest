@@ -1,4 +1,4 @@
-package com.codoon.common.model.sportscircle.handpick;
+package com.codoon.common.model.drycargo.handpick;
 
 import org.openqa.selenium.By;
 

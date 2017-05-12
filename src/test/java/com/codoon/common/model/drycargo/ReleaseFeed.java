@@ -1,15 +1,8 @@
-package com.codoon.common.model.sportscircle;
+package com.codoon.common.model.drycargo;
 
-import com.codoon.common.model.SportsCirclePage;
 import com.codoon.common.util.DeviceHelper;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.sikuppium.driver.CustomImageElement;
-import io.sikuppium.driver.ImageElement;
 import io.sikuppium.driver.SikuppiumDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.PageFactory;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by huangjingqing on 17/3/27.

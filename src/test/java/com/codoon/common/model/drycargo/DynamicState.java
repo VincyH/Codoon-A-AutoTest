@@ -1,7 +1,5 @@
-package com.codoon.common.model.sportscircle;
+package com.codoon.common.model.drycargo;
 
-import com.codoon.common.model.SportsCirclePage;
-import com.sun.tools.jdi.SocketTransportService;
 import org.openqa.selenium.By;
 
 /**

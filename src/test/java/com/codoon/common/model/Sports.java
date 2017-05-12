@@ -9,6 +9,6 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by huangjingqing on 17/3/27.
  */
-public class SportsBeginPage {
+public class Sports {
 
 }
